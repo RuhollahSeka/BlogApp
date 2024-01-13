@@ -1,3 +1,6 @@
 __pycahrm__
-venv
 .idea
+
+venv
+
+.env
