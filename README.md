@@ -132,18 +132,6 @@ Congratulations! The project is now deployed and running on port 8000 of your lo
 
 ---
 
-# Testing
-
-To run the tests, you can use the following command:
-
-```shell
-docker-compose exec -it <CONTAINER_NAME> python manage.py test
-```
-
-Also, after each push to the repository, the tests will be run automatically by GitHub Actions.
-
----
-
 # Linting
 
 Flake8 is used for linting in this project.
@@ -159,9 +147,40 @@ Also, after each push to the repository, the linting will be run automatically b
 
 ---
 
+# Testing
+
+To run the tests, you can use the following command:
+
+```shell
+docker-compose exec -it <CONTAINER_NAME> python manage.py test
+```
+
+Also, after each push to the repository, the tests will be run automatically by GitHub Actions.
+
+---
+
+# Pre-Commit
+
+This project uses pre-commit to run some checks before each commit. 
+You can find the configuration file in the `.pre-commit-config.yaml` file in the root of the project.
+
+To install pre-commit, you can use the following command:
+
+```shell
+pre-commit install
+```
+
+---
+
 # CI
 
 This project uses GitHub Actions for CI. You can find the workflow files in the `.github/workflows` directory.
+CI workflow has the following steps:
+
+- Linting:
+  - Runs flake8 to check the code style.
+- Testing:
+  - Runs the tests.
 
 ---
 
