@@ -3,7 +3,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: gunicorn BlogApp.wsgi:application --bind 0.0.0.0:8000 --workers=2 -t 40 --access-logfile -  --access-logformat '%(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s" %(M)s'
+    command: >
+      sh -c "
+        python manage.py collectstatic --noinput &&
+        python manage.py migrate &&
+        gunicorn BlogApp.wsgi:application --bind 0.0.0.0:8000 --workers=2 -t 40 --access-logfile -  --access-logformat '%(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s" %(M)s'"
     volumes:
       - statics_volume:/usr/src/app/static
       - media_volume:/usr/src/app/media
