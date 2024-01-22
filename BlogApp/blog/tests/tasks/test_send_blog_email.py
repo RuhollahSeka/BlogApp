@@ -1,6 +1,6 @@
 from unittest.mock import patch
 
-from django.test import TestCase, TransactionTestCase
+from django.test import TestCase
 from model_mommy import mommy
 
 from blog.tasks import send_blog_email_task

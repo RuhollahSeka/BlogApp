@@ -3,4 +3,4 @@ repos:
     rev: '7.0.0'
     hooks:
       - id: flake8
-        exclude: migrations,venv,__init__.py
+        exclude: 'migrations/*|venv/*|__init__.py'
