@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     'blog',
 
     # Third Party Apps
+    'ninja_extra',
     'ninja_jwt',
 ]
 

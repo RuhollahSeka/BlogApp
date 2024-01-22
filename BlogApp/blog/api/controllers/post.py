@@ -1,6 +1,7 @@
 from typing import Any
 
 from ninja_extra import api_controller, pagination, ModelControllerBase, ModelConfig, ModelPagination, ModelService
+from ninja_extra.schemas import NinjaPaginationResponseSchema
 from ninja_jwt.authentication import JWTAuth
 from pydantic import BaseModel as PydanticModel
 
@@ -17,7 +18,11 @@ class PostModelController(ModelControllerBase, ModelService):
         patch_schema=PostInputSchema,
         pagination=ModelPagination(
             klass=pagination.LimitOffsetPagination,
-            pagination_schema=pagination.PaginatedResponseSchema,
+            pagination_schema=NinjaPaginationResponseSchema,
+            pagination_kwargs={
+                'limit': 10,
+                'offset': 0,
+            },
         )
     )
 
