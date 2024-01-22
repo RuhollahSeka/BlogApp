@@ -1,1 +1,1 @@
-from .post import PostController
+from .post import PostModelController

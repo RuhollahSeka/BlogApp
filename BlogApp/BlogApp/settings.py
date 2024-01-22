@@ -17,6 +17,9 @@ INSTALLED_APPS = [
 
     # Internal Apps
     'blog',
+
+    # Third Party Apps
+    'ninja_jwt',
 ]
 
 MIDDLEWARE = [
@@ -88,7 +91,7 @@ EMAIL_HOST = config('EMAIL_HOST', default='')
 EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
 EMAIL_PORT = config('EMAIL_PORT', default=587)
-DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', defualt='')
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default='')
 
 REDIS_HOST = config('REDIS_HOST', default='localhost')
 CELERY_BROKER_URL = f'redis://{REDIS_HOST}:6379'
@@ -99,6 +102,8 @@ CACHES = {
         'LOCATION': f'redis://{REDIS_HOST}:6379',
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+            'SOCKET_CONNECT_TIMEOUT': 5,
+            'SOCKET_TIMEOUT': 5,
         }
     }
 }

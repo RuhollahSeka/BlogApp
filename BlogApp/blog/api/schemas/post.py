@@ -1,12 +1,25 @@
+from django.contrib.auth.models import User
 from ninja import ModelSchema
 
 from blog.models import Post
 
 
+class PostUserSchema(ModelSchema):
+    class Meta:
+        model = User
+        fields = (
+            'first_name',
+            'last_name',
+            'email',
+        )
+
+
 class PostResponseSchema(ModelSchema):
-    class Config:
+    user: PostUserSchema
+
+    class Meta:
         model = Post
-        model_fields = (
+        fields = (
             'id',
             'created_at',
             'updated_at',
@@ -16,9 +29,9 @@ class PostResponseSchema(ModelSchema):
 
 
 class PostInputSchema(ModelSchema):
-    class Config:
+    class Meta:
         model = Post
-        model_fields = (
+        fields = (
             'title',
             'content',
         )
