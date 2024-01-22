@@ -57,4 +57,4 @@ jobs:
         pip install -r requirements.txt
 
     - name: Run Tests
-      run: python manage.py test --noinput
+      run: python BlogApp/manage.py test --noinput
