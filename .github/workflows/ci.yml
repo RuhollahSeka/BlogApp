@@ -41,7 +41,7 @@ jobs:
       SECRET_KEY: test_secret
       DB_NAME: blog
       DB_USER: blog
-      DB_PASSWORD: blog
+      DB_PASS: blog
 
     steps:
     - name: Checkout!
