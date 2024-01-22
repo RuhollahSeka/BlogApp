@@ -12,17 +12,13 @@ from ..schemas import PostResponseSchema, PostInputSchema
 @api_controller('/posts', auth=JWTAuth())
 class PostModelController(ModelControllerBase, ModelService):
     model_config = ModelConfig(
+        allowed_routes=['create', 'find_one', 'list', 'update', 'delete'],
         model=Post,
         create_schema=PostInputSchema,
         retrieve_schema=PostResponseSchema,
-        patch_schema=PostInputSchema,
         pagination=ModelPagination(
             klass=pagination.LimitOffsetPagination,
             pagination_schema=NinjaPaginationResponseSchema,
-            pagination_kwargs={
-                'limit': 10,
-                'offset': 0,
-            },
         )
     )
 
