@@ -101,12 +101,13 @@ EMAIL_PORT = config('EMAIL_PORT', default=587)
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default='')
 
 REDIS_HOST = config('REDIS_HOST', default='localhost')
-CELERY_BROKER_URL = f'redis://{REDIS_HOST}:6379'
+REDIS_PORT = config('REDIS_PORT', default='6379')
+CELERY_BROKER_URL = f'redis://{REDIS_HOST}:{REDIS_PORT}'
 
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': f'redis://{REDIS_HOST}:6379',
+        'LOCATION': f'redis://{REDIS_HOST}:{REDIS_PORT}/1',
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
             'SOCKET_CONNECT_TIMEOUT': 5,
