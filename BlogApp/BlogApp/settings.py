@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 from decouple import config, Csv
 from pathlib import Path
 
@@ -84,7 +86,11 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
+STATIC_ROOT = 'static/'
 STATIC_URL = 'static/'
+
+MEDIA_ROOT = 'media/'
+MEDIA_URL = 'media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -107,4 +113,9 @@ CACHES = {
             'SOCKET_TIMEOUT': 5,
         }
     }
+}
+
+NINJA_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=1),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=30),
 }
