@@ -140,7 +140,7 @@ To configure flake8, you can edit the `.flake8` file in the root of the project.
 To run the linting, you can use the following command:
 
 ```shell
-docker-compose exec -it <CONTAINER_NAME> flake8
+docker exec <CONTAINER_NAME> flake8
 ```
 
 Also, after each push to the repository, the linting will be run automatically by GitHub Actions.
@@ -152,7 +152,7 @@ Also, after each push to the repository, the linting will be run automatically b
 To run the tests, you can use the following command:
 
 ```shell
-docker-compose exec -it <CONTAINER_NAME> python manage.py test
+docker exec <CONTAINER_NAME> python manage.py test
 ```
 
 Also, after each push to the repository, the tests will be run automatically by GitHub Actions.
