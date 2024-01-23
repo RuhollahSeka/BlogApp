@@ -13,7 +13,7 @@ RUN apk update \
 
 RUN pip install --upgrade pip
 
-COPY BlogApp/ requirements.txt /usr/src/app/
+COPY BlogApp/ .flake8 requirements.txt /usr/src/app/
 
 RUN pip install -r /usr/src/app/requirements.txt
 
