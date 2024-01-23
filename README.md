@@ -130,6 +130,13 @@ docker-compose build && docker-compose up -d
 
 Congratulations! The project is now deployed and running on port 8000 of your localhost.
 
+Whenever you want to deploy new changes, first pull your changes from git as shown
+below and then run the above command again:
+
+```shell
+git pull
+```
+
 ---
 
 # Linting
@@ -185,4 +192,4 @@ CI workflow has the following steps:
 ---
 
 # API Documentation
-After deploying the project, you can access the API documentation at `/api/docs/`.
+After deploying the project, you can access the API documentation at `/api/docs`.
